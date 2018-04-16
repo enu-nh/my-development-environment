@@ -2,6 +2,11 @@
 
 ## Requirement
 
+### Styling methodology
+
+Base rule is FLOCSS.
+https://github.com/hiloki/flocss
+
 ### Directory
 
 ```
@@ -19,14 +24,19 @@
   - archive/
     - single/
 
-//Wordpress時の出力先
-- dist_wp/
-- mock/
-
 - src
   - js/
   - scss/
   - mock/
+    - common/
+      - js/libs.js
+      - img/
+      - inc/
+    - page-primary/
+      - page-secondary/
+    - archive/
+      - single/
+      
 ```
 
 ## Usage
