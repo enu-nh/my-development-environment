@@ -23,7 +23,8 @@ module.exports = [
 				{
 					test: /.scss$/,
 					use: ExtractTextPlugin.extract({
-						use: ["css-loader",　"postcss-loader", "sass-loader"]
+						use:[
+							{loader:"css-loader",options: {minimize: true}},　"postcss-loader", "sass-loader"]
 					})
 				},
 				{
@@ -45,30 +46,31 @@ module.exports = [
   },
 	{
 		entry: {
-			'dist/common/inc/firstview': SCSS_PATH + '/firstview.scss'
+			'src/mock/common/inc/_inline': SCSS_PATH + '/inline.scss'
 		},
 		output: {
 			path: CSS_PATH,
-			filename: '[name].html'
+			filename: '[name].ejs'
 		},
 		module: {
 			rules: [
 				{
 					test: /.scss$/,
 					use: ExtractTextPlugin.extract({
-						use: ["css-loader",　"postcss-loader", "sass-loader"]
+						use: [
+							{loader:"css-loader",options: {minimize: true}},　"postcss-loader", "sass-loader"]
 					})
 				}
 			]
 		},
 		plugins: [
 			// new StyleLintPlugin(options),
-			new ExtractTextPlugin('[name].html'),
+			new ExtractTextPlugin('[name].ejs'),
 		]
   },
 	{
 		entry: {
-			'dist/common/js/app': JS_PATH + '/main.js',//ベースとなるjs
+			'dist/common/js/bundle': JS_PATH + '/main.js',//ベースとなるjs
 			'dist/common/js/form': JS_PATH + '/form.js'//フォームのみで使用するjs
 		},
 		output: {
